@@ -29,10 +29,34 @@ const homepage = [
       {
         path: "booking",
         name: "home.page.booking",
-        component: () => import("../pages/customer_page/appointment_page.vue"),
+        component: () => import("../pages/customer_page/booking_page.vue"),
         meta: {
           title: "Đặt lịch khám",
         },
+        children: [
+          {
+            path: "old",
+            name: "home.page.booking.old",
+            component: () =>
+              import(
+                "../pages/customer_page/children_booking_page/booking_old.vue"
+              ),
+            meta: {
+              title: "Đặt lịch khám dành cho bệnh nhân cũ",
+            },
+          },
+          {
+            path: "new",
+            name: "home.page.booking.new",
+            component: () =>
+              import(
+                "../pages/customer_page/children_booking_page/booking_new.vue"
+              ),
+            meta: {
+              title: "Đặt lịch khám dành cho bệnh nhân mới",
+            },
+          },
+        ],
       },
 
       {

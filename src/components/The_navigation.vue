@@ -39,7 +39,7 @@
           <li>
             <router-link
               :to="{
-                name: 'home.page.about',
+                name: 'home.page.contact',
               }"
               >LIÊN HỆ</router-link
             >
