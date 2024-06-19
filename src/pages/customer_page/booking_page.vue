@@ -36,10 +36,10 @@
       </div>
       <p class="note">
         Lưu ý thông tin phải chính xác khi điền vào, những trường bắt buộc không
-        được bỏ trống (<sup style="color: red; font-size: 15px">*</sup>)
+        được bỏ trống (<span style="color: red; font-size: 15px">*</span>)
       </p>
     </div>
-    <hr />
+    <hr class="mt-5" />
     <router-view></router-view>
   </div>
 </template>
