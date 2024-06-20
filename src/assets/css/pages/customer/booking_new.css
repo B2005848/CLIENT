@@ -1,4 +1,7 @@
-.d-flex {
+.container {
   width: 100%;
-  margin: 0 auto;
+}
+
+.note__star {
+  color: red;
 }
