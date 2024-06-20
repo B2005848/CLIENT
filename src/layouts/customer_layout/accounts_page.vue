@@ -2,7 +2,7 @@
   <div class="layout-background">
     <div class="container lg-grid">
       <div class="text-center">
-        <router-link to="/">
+        <router-link to="/homepage/product">
           <img src="@/assets/Logo.svg" width="350" alt="" />
           <p class="title-logo">"Chăm sóc tận tâm, sức khỏe trọn vẹn."</p>
         </router-link>
