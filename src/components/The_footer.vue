@@ -3,6 +3,7 @@
   display: flex;
   flex-wrap: wrap;
   justify-content: space-evenly;
+  padding: 20px;
 }
 
 .item {
@@ -30,7 +31,7 @@ ul li {
 </style>
 
 <template>
-  <div class="footer mt-5">
+  <div class="footer">
     <div class="item">
       <p>CHĂM SÓC KHÁCH HÀNG</p>
       <ul>

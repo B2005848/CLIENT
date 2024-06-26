@@ -17,7 +17,11 @@
 
 <template>
   <Input_search></Input_search>
-
+  <div class="category">
+    <select name="category" id="">
+      <option value="#" selected><p></p></option>
+    </select>
+  </div>
   <div class="mt-5">
     <div class="container">
       <h2 class="title">GỢI Ý HÔM NAY</h2>

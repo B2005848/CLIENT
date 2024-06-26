@@ -1,4 +1,5 @@
 <template>
+  <Theproccessbooking></Theproccessbooking>
   <div class="main mt-5">
     <div class="title text-center">
       <h3>ĐĂNG KÍ KHÁM BỆNH</h3>
@@ -45,6 +46,10 @@
 </template>
 
 <script setup>
+import Theproccessbooking from "@/components/proccess_booking.vue";
+import { useProccess } from "@/stores/proccess_booking.store";
+const useProccessStore = useProccess();
+useProccessStore.setStep(1);
 import {
   corlorButtonCursor1,
   corlorButtonCursor2,

@@ -4,6 +4,7 @@
   width: 70%;
   margin: 0 auto;
   padding: 20px;
+  box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
 }
 
 .title {
@@ -29,4 +30,19 @@ a {
   cursor: pointer;
   text-align: center;
   width: 200px;
+}
+
+.ul__list {
+  list-style: none;
+  display: flex;
+  margin-top: 20px;
+}
+
+.ul__list li {
+  margin: 10px;
+}
+
+.ul__list li.active {
+  font-weight: bold;
+  color: #007bff;
 }

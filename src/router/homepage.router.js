@@ -25,7 +25,7 @@ const homepage = [
           title: "Dịch vụ sức khỏe",
         },
       },
-
+      // -------------------------------BOOKING URL----------------------------------
       {
         path: "booking",
         name: "home.page.booking",
@@ -58,7 +58,34 @@ const homepage = [
           },
         ],
       },
+      // -----------------SELECT_SERVICE_BOOKING----------------
+      {
+        path: "booking/select_service_booking",
+        name: "home.page.booking.select_service_booking",
+        component: () =>
+          import(
+            "../pages/customer_page/children_booking_page/select_service.vue"
+          ),
+        meta: {
+          title: "Chọn dịch vụ khám",
+        },
+        children: [
+          // ----------------SELECT_DOCTOR_BOOKING-----------------------
+          {
+            path: "booking/select_doctor_booking",
+            name: "home.page.booking.select_doctor_booking",
+            component: () =>
+              import(
+                "../pages/customer_page/children_booking_page/select_doctor.vue"
+              ),
+            meta: {
+              title: "Chọn bác sĩ khám và giờ khám",
+            },
+          },
+        ],
+      },
 
+      // ---------------------CONTACT URL--------------------------------------
       {
         path: "contact",
         name: "home.page.contact",

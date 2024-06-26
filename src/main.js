@@ -1,6 +1,7 @@
 import "./assets/main.css";
 import { createApp } from "vue";
 import App from "./App.vue";
+import { createPinia } from "pinia";
 import router from "./router/index.router";
 import "bootstrap/dist/css/bootstrap.css";
 import "bootstrap/dist/js/bootstrap.js";
@@ -14,8 +15,9 @@ import { far } from "@fortawesome/free-regular-svg-icons";
 
 library.add(fas, fab, far);
 const app = createApp(App);
+const pinia = createPinia();
 
 app.component("font-awesome-icon", FontAwesomeIcon);
 app.use(router);
-
+app.use(pinia);
 app.mount("#app");

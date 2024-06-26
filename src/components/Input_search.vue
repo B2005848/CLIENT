@@ -29,7 +29,7 @@
       <input
         id="input-search"
         type="text"
-        placeholder="Nhập thông tin cần tìm...."
+        placeholder="Thực phẩm chức năng, triệu chứng và vitamin... "
         size="50"
       />
       <font-awesome-icon
