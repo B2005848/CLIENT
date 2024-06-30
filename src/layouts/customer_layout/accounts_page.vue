@@ -50,6 +50,7 @@ a {
   margin: auto;
   opacity: 0.2;
 }
+
 .fade-in {
   animation: fadeIn 0.7s ease-in-out;
 }

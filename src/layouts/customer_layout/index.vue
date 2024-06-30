@@ -7,7 +7,7 @@
   <navigation></navigation>
   <!-- <Input_search></Input_search> -->
   <!-- <TheBody></TheBody> -->
-  <router-view></router-view>
+  <router-view class="fade-in"></router-view>
   <hr class="mt-3" />
   <TheFooter></TheFooter>
 </template>
@@ -18,3 +18,7 @@ import navigation from "@/components/The_navigation.vue";
 // import Input_search from "@/components/Input_search.vue";
 import TheFooter from "@/components/The_footer.vue";
 </script>
+
+<style scoped>
+@import "@/assets/css/animation__page.css";
+</style>

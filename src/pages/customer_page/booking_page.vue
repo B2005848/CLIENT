@@ -1,6 +1,6 @@
 <template>
   <Theproccessbooking></Theproccessbooking>
-  <div class="main mt-5">
+  <div class="main mt-5 fade-in">
     <div class="title text-center">
       <h3>ĐĂNG KÍ KHÁM BỆNH</h3>
 
@@ -41,7 +41,7 @@
       </p>
     </div>
     <hr class="mt-5" />
-    <router-view></router-view>
+    <router-view class="fade-in"></router-view>
   </div>
 </template>
 
@@ -59,4 +59,5 @@ import {
 </script>
 <style scoped>
 @import "../../assets/css/pages/customer/booking_page.css";
+@import "@/assets/css/animation__page.css";
 </style>
