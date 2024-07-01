@@ -23,6 +23,22 @@ a {
   background-color: rgb(187, 215, 255);
   padding: 10px;
   border-radius: 10px;
+  display: flex;
+}
+
+.thead > div {
+  flex: 1;
+}
+
+.service-row {
+  display: flex;
+  align-items: center;
+  border-top: 1px solid black;
+  line-height: 1.5cm;
+}
+
+.service-row > div {
+  flex: 1;
 }
 
 .btn__select {
@@ -32,6 +48,8 @@ a {
   border: none;
   width: 100px;
   border-radius: 14px;
+  font-size: 0.9em; /* Adjusted font size */
+  line-height: 1.2em;
 }
 
 .btn__select:hover {
@@ -42,6 +60,7 @@ a {
   background-color: rgb(255, 105, 105);
 }
 </style>
+
 <template>
   <Theproccessbooking></Theproccessbooking>
 
@@ -78,25 +97,26 @@ a {
       >CHỌN DỊCH VỤ KHÁM
     </h4>
 
-    <div class="thead d-flex text-center row mb-2 form-control">
-      <div class="col"><b>STT</b></div>
-      <div class="col"><b>Tên dịch vụ</b></div>
-      <div class="col"><b>Giá</b></div>
-      <div class="col"><b>Chọn</b></div>
+    <div class="thead text-center row mb-2 form-control">
+      <div><b>STT</b></div>
+      <div><b>Tên dịch vụ</b></div>
+      <div><b>Giá</b></div>
+      <div><b>Chọn</b></div>
     </div>
     <div class="list__service text-center form-control">
       <div
-        style="line-height: 1.5cm; margin-top: 10px"
-        class="row align-items-start"
+        class="service-row"
         v-for="(service, index) in services"
         :key="index"
       >
-        <div class="col">
+        <div>
           {{ index + 1 }}
         </div>
-        <div class="col">{{ service.name }}</div>
-        <div class="col">{{ useCurrency.formatCurrency(service.price) }}</div>
-        <div class="col">
+        <div>{{ service.name }}</div>
+        <div>
+          {{ useCurrency.formatCurrency(service.price) }}
+        </div>
+        <div>
           <router-link
             :to="{ name: 'home.page.booking.select_doctor_booking' }"
           >
@@ -106,8 +126,8 @@ a {
               class="btn__select"
             >
               {{ service.selected ? "ĐÃ CHỌN" : "CHỌN" }}
-            </button></router-link
-          >
+            </button>
+          </router-link>
         </div>
       </div>
     </div>
@@ -120,7 +140,7 @@ a {
 </template>
 
 <script setup>
-import { ref } from "vue";
+import { onMounted, ref } from "vue";
 import Theproccessbooking from "@/components/proccess_booking.vue";
 import { useProccess } from "@/stores/proccess_booking.store";
 
@@ -129,26 +149,15 @@ useProccessStore.setStep(2);
 // define price VNĐ
 import { useCurrencyStore } from "@/stores/define-vnd";
 const useCurrency = useCurrencyStore();
-const services = ref([
-  {
-    id: 1,
-    name: "Khám tim mạch",
-    description: "Khám tim mạch",
-    price: 100000,
-  },
-  {
-    id: 2,
-    name: "Khám tai mũi họng",
-    description: "Khám tai mũi họng",
-    price: 150000,
-  },
-  {
-    id: 3,
-    name: "Khám răng hàm mặt",
-    description: "Khám răng hàm mặt",
-    price: 200000,
-  },
-]);
+const services = ref([]);
+
+onMounted(() => {
+  fetch("/list-services.json")
+    .then((response) => response.json())
+    .then((data) => {
+      services.value = data.services;
+    });
+});
 
 const selectService = (index) => {
   services.value.forEach((service, i) => {

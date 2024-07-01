@@ -11,7 +11,8 @@ const homepage = [
       {
         path: "product",
         name: "home.page.product",
-        component: () => import("../components/The_body.vue"),
+        component: () =>
+          import("../pages/customer_page/list_products_page.vue"),
         meta: {
           title: "Sản phẩm sức khỏe",
         },

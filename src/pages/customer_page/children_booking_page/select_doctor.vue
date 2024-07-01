@@ -125,29 +125,12 @@
 </template>
 
 <script setup>
-import { ref } from "vue";
+import { onMounted, ref } from "vue";
 
-const doctors = ref([
-  {
-    id: 1,
-    name: "Dr. Nguyễn Văn A",
-    phone: "096215978",
-    specialty: "Tim mạch",
-    email: "abc@2014gmail.com",
-    image:
-      "https://images.unsplash.com/photo-1612349317150-e413f6a5b16d?q=80&w=2070&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
-    availableTimes: ["8:00", "9:00", "10:00", "11:00"],
-  },
-
-  {
-    id: 4,
-    name: "Dr. Phạm Văn D",
-    phone: "0123456789",
-    specialty: "Răng hàm mặt",
-    email: "abc@2214gmail.com",
-    image:
-      "https://plus.unsplash.com/premium_photo-1661764878654-3d0fc2eefcca?q=80&w=1887&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
-    availableTimes: ["8:00", "9:00", "10:00", "11:00"],
-  },
-]);
+const doctors = ref([]);
+onMounted(() => {
+  fetch("/list-doctors.json")
+    .then((res) => res.json())
+    .then((data) => (doctors.value = data.listdoctors));
+});
 </script>
