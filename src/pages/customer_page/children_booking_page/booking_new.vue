@@ -303,11 +303,10 @@
       </div>
 
       <div class="mb-4 mt-5 text-center">
-        <router-link :to="{ name: 'home.page.booking.select_service_booking' }">
-          <button type="submit" class="btn__submit">
-            TIẾP THEO
-          </button></router-link
-        >
+        <router-link
+          :to="{ name: 'home.page.booking.select_service_booking' }"
+        ></router-link>
+        <button type="submit" class="btn__submit">TIẾP THEO</button>
       </div>
     </form>
   </div>
@@ -396,6 +395,7 @@ const getYearRange = () => {
 };
 
 import { useStore } from "@/stores/value_new_booking.store";
+import router from "@/router/index.router";
 const store = useStore();
 // Khai báo các biến và gán bằng ref()
 const selectedDtoc = ref("");
@@ -418,6 +418,65 @@ const citizen_id = ref("");
 const commune = ref("");
 const address = ref("");
 const updateValues = () => {
+  if (sub_name.value == "") {
+    alert("Vui lòng tên đệm");
+    return;
+  }
+  if (first_name.value == "") {
+    alert("Vui lòng tên");
+    return;
+  }
+
+  if (number_phone.value == "") {
+    alert("Vui lòng số điện thoại");
+    return;
+  }
+  if (selectedDay.value == "") {
+    alert("Vui lòng chọn ngày sinh");
+    return;
+  }
+  if (selectedMonth.value == "") {
+    alert("Vui lòng chọn tháng sinh");
+    return;
+  }
+  if (selectedYear.value == "") {
+    alert("Vui lòng chọn năm sinh");
+    return;
+  }
+  if (citizen_id.value == "") {
+    alert("Vui lòng nhập số CMND/CCCD");
+    return;
+  }
+  if (selectedGender.value == "") {
+    alert("Vui lòng chọn giới tính");
+    return;
+  }
+  if (selectedMajor.value == "") {
+    alert("Vui lòng chọn nghề nghiệp");
+    return;
+  }
+  if (selectedProvince.value == "") {
+    alert("Vui lòng chọn tỉnh/thành phố");
+    return;
+  }
+  if (selectedDistrict.value == "") {
+    alert("Vui lòng chọn quận/huyện");
+    return;
+  }
+  if (commune.value == "") {
+    alert("Vui lòng chọn xã/phường");
+    return;
+  }
+
+  if (selectedDtoc.value == "") {
+    alert("Vui lòng chọn dân tộc");
+  }
+
+  if (address.value == "") {
+    alert("Vui lòng nhập địa chỉ");
+    return;
+  }
+
   const values = {
     selectedDtoc: selectedDtoc.value,
     sub_name: sub_name.value,
@@ -441,6 +500,7 @@ const updateValues = () => {
   };
 
   store.updateValues(values);
+  router.push({ name: "home.page.booking.select_service_booking" });
 };
 </script>
 <style scoped>

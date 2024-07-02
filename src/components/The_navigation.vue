@@ -1,83 +1,6 @@
-<template>
-  <div class="nav row">
-    <!-- LOGO-->
-    <div class="item-1 text-center col-3 col-md-3 mt-3">
-      <img src="../assets/Logo.svg" alt="ShineOnYou.Logo" />
-      <p class="title-logo">"Chăm sóc tận tâm, sức khỏe trọn vẹn."</p>
-    </div>
-
-    <!-- MAIN MENU -->
-    <div class="item-2 col-6">
-      <div class="d-flex justify-content-center mt-5">
-        <ul class="d-flex">
-          <li>
-            <router-link :to="{ name: 'home.page.product' }"
-              >SẢN PHẨM</router-link
-            >
-          </li>
-          <li>
-            <router-link :to="{ name: 'home.page.list-doctor' }"
-              >ĐỘI NGŨ BÁC SĨ</router-link
-            >
-          </li>
-          <li>
-            <router-link
-              :to="{
-                name: 'home.page.service',
-              }"
-              >DỊCH VỤ</router-link
-            >
-          </li>
-          <li>
-            <router-link
-              :to="{
-                name: 'home.page.booking',
-              }"
-              >ĐẶT LỊCH</router-link
-            >
-          </li>
-          <li>
-            <router-link
-              :to="{
-                name: 'home.page.contact',
-              }"
-              >LIÊN HỆ</router-link
-            >
-          </li>
-          <li>
-            <router-link
-              :to="{
-                name: 'home.page.about',
-              }"
-              >HƯỚNG DẪN KHÁC HÀNG</router-link
-            >
-          </li>
-        </ul>
-      </div>
-    </div>
-    <!-- LOGIN BUTTON -->
-    <div class="item-3 col-3 mt-3">
-      <div class="text-center">
-        <router-link :to="{ name: 'login.page' }">ĐĂNG NHẬP</router-link> /
-        <router-link :to="{ name: 'sign_up.page' }"
-          >ĐĂNG KÍ TÀI KHOẢN</router-link
-        >
-      </div>
-
-      <div>
-        <p>
-          <font-awesome-icon
-            size="xl"
-            icon="fa-headset"
-            style="color: #fafafa; margin-right: 10px"
-          />
-          TỔNG ĐÀI TƯ VẤN: 1900 1XX XXX
-        </p>
-      </div>
-    </div>
-  </div>
-</template>
-
+<style scoped>
+/* Styles cho component */
+</style>
 <style scoped>
 /* list-menu */
 a {
@@ -152,4 +75,132 @@ li {
     display: none;
   }
 }
+
+.btn__logout {
+  color: #1689db;
+  border: none;
+  background: none;
+}
 </style>
+<template>
+  <div class="nav row">
+    <!-- LOGO-->
+    <div class="item-1 text-center col-3 col-md-3 mt-3">
+      <img src="../assets/Logo.svg" alt="ShineOnYou.Logo" />
+      <p class="title-logo">"Chăm sóc tận tâm, sức khỏe trọn vẹn."</p>
+    </div>
+
+    <!-- MAIN MENU -->
+    <div class="item-2 col-6">
+      <div class="d-flex justify-content-center mt-5">
+        <ul class="d-flex">
+          <li>
+            <router-link :to="{ name: 'home.page.product' }"
+              >SẢN PHẨM</router-link
+            >
+          </li>
+          <li>
+            <router-link :to="{ name: 'home.page.list-doctor' }"
+              >ĐỘI NGŨ BÁC SĨ</router-link
+            >
+          </li>
+          <li>
+            <router-link
+              :to="{
+                name: 'home.page.service',
+              }"
+              >DỊCH VỤ</router-link
+            >
+          </li>
+          <li>
+            <router-link
+              :to="{
+                name: 'home.page.booking',
+              }"
+              >ĐẶT LỊCH</router-link
+            >
+          </li>
+          <li>
+            <router-link
+              :to="{
+                name: 'home.page.contact',
+              }"
+              >LIÊN HỆ</router-link
+            >
+          </li>
+          <li>
+            <router-link
+              :to="{
+                name: 'home.page.about',
+              }"
+              >HƯỚNG DẪN KHÁC HÀNG</router-link
+            >
+          </li>
+        </ul>
+      </div>
+    </div>
+
+    <!-- LOGIN BUTTON -->
+    <div class="item-3 col-3 mt-3">
+      <div v-if="username && name" class="text-center">
+        <font-awesome-icon
+          icon="fa-regular fa-user"
+          bounce
+          style="color: #74c0fc"
+        />
+        <span class="ms-2"> Xin chào, ! {{ username }}_{{ name }}</span>
+        <button @click="logout" class="btn__logout">Đăng xuất</button>
+      </div>
+      <div v-if="!username && !name" class="text-center">
+        <router-link :to="{ name: 'login.page' }">ĐĂNG NHẬP</router-link> /
+        <router-link :to="{ name: 'sign_up.page' }"
+          >ĐĂNG KÍ TÀI KHOẢN</router-link
+        >
+      </div>
+      <div>
+        <p>
+          <font-awesome-icon
+            size="xl"
+            icon="fa-headset"
+            style="color: #fafafa; margin-right: 10px"
+          />
+          TỔNG ĐÀI TƯ VẤN: 1900 1XX XXX
+        </p>
+      </div>
+    </div>
+  </div>
+</template>
+
+<script setup>
+import { useAuthStore } from "@/stores/authenticate-login";
+import { onMounted, ref } from "vue";
+const authStore = useAuthStore();
+const usernametest = authStore.username;
+console.log(usernametest);
+const username = ref("");
+const name = ref("");
+const getInformationPatient = async () => {
+  try {
+    const response = await window.axios.get(
+      `http://localhost:3000/api/handle/patient/getinfo/${usernametest}`
+    );
+    console.log(response.data);
+    if (response.status === 200) {
+      username.value = response.data.dataInfo.username;
+      name.value = response.data.dataInfo.name;
+    }
+  } catch (error) {
+    console.error(
+      "An error occurred while get data information patient:",
+      error
+    );
+  }
+};
+onMounted(() => {
+  getInformationPatient();
+});
+const logout = () => {
+  authStore.logout();
+  window.location.reload();
+};
+</script>

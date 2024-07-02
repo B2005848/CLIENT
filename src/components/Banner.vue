@@ -68,7 +68,8 @@
       <span>
         <font-awesome-icon
           icon=" fa-bell"
-          style="color: #ffffff; font-size: 25px"
+          shake
+          style="color: #fbfe23; font-size: 25px"
       /></span>
     </div>
   </div>

@@ -28,10 +28,11 @@
   <div class="container">
     <div class="form">
       <h1 class="text-center">ĐĂNG NHẬP</h1>
-      <form class="mt-5" action="">
+      <form class="mt-5" @submit.prevent="handleLogin">
         <!-- USERNAME -->
         <div class="box-input">
           <input
+            v-model="loginData.username"
             class="form-control mb-4"
             type="text"
             placeholder="Số điện thoại hoặc email"
@@ -42,6 +43,7 @@
         <!-- PASSWORD -->
         <div class="box-input position-relative">
           <input
+            v-model="loginData.password"
             class="form-control mb-4"
             :type="passwordFieldType"
             placeholder="Mật khẩu"
@@ -76,6 +78,10 @@
 
 <script setup>
 import { ref } from "vue";
+import { useRouter } from "vue-router";
+import { useAuthStore } from "@/stores/authenticate-login";
+const router = useRouter();
+const authStore = useAuthStore();
 const passwordFieldType = ref("password");
 const iconPasswd = ref(["fa", "fa-eye"]);
 
@@ -86,6 +92,27 @@ const showPass = () => {
   } else {
     passwordFieldType.value = "password";
     iconPasswd.value = ["fa", "fa-eye"];
+  }
+};
+
+const loginData = ref({
+  username: "",
+  password: "",
+});
+
+const handleLogin = async () => {
+  try {
+    const response = await window.axios.post(
+      "http://localhost:3000/api/patient/account/login",
+      loginData.value
+    );
+    if (response.status === 200) {
+      authStore.login(loginData.value.username);
+      router.push({ name: "home.page.product" });
+      console.log("Login success", loginData.value.username);
+    }
+  } catch (error) {
+    console.log(error.response.data.message);
   }
 };
 </script>

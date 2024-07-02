@@ -22,7 +22,6 @@
 }
 
 .col-md-2 {
-  height: 100vh;
   background-color: #d8eefe;
 }
 </style>

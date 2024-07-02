@@ -31,10 +31,20 @@
       <h1 class="text-center">ĐĂNG KÍ TÀI KHOẢN</h1>
       <p class="text-center">Nhanh chóng và dễ dàng</p>
 
-      <form class="mt-5" action="">
+      <form class="mt-5" action="" @submit.prevent="handleSignup">
+        <div class="box-input">
+          <input
+            class="form-control"
+            type="text"
+            v-model="sign_upData.name"
+            placeholder="Họ và tên"
+            size="50"
+          />
+        </div>
         <!-- USERNAME -->
         <div class="box-input">
           <input
+            v-model="sign_upData.username"
             class="form-control"
             type="text"
             placeholder="Số điện thoại hoặc email đăng kí"
@@ -45,6 +55,7 @@
         <!-- PASSWORD -->
         <div class="box-input">
           <input
+            v-model="sign_upData.password"
             class="form-control"
             :type="passwordFieldType"
             placeholder="Mật khẩu"
@@ -61,6 +72,7 @@
         <!-- RE TYPE PASSWD -->
         <div class="box-input">
           <input
+            v-model="re_passwd"
             class="form-control"
             :type="re_passwordFieldType"
             placeholder="Nhập lại mật khẩu"
@@ -87,6 +99,9 @@
 
 <script setup>
 import { ref } from "vue";
+import { useRouter } from "vue-router";
+
+const router = useRouter();
 const passwordFieldType = ref("password");
 const re_passwordFieldType = ref("password");
 const iconPasswd = ref(["fa", "fa-eye"]);
@@ -100,6 +115,36 @@ const showPass = () => {
     passwordFieldType.value = "password";
     re_passwordFieldType.value = "password";
     iconPasswd.value = ["fa", "fa-eye"];
+  }
+};
+
+const sign_upData = ref({
+  name: "",
+  username: "",
+  password: "",
+});
+const re_passwd = ref("");
+
+const handleSignup = async () => {
+  try {
+    if (sign_upData.value.password !== re_passwd.value) {
+      alert("Mật khẩu không khớp!");
+      return;
+    }
+    const response = await window.axios.post(
+      "http://localhost:3000/api/patient/account/create",
+      sign_upData.value
+    );
+    console.log(response.data);
+    if (response.status === 201) {
+      console.log("Create successfully!", sign_upData.value);
+      router.push({ name: "login.page" });
+    } else {
+      alert("Đăng ký không thành công, vui lòng thử lại.");
+      console.log("Create failed!", sign_upData.value);
+    }
+  } catch (error) {
+    console.log(error);
   }
 };
 </script>

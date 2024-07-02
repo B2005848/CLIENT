@@ -17,6 +17,78 @@ const admin = [
           title: "Shineonyou - Dashboard",
         },
       },
+      // Router for admin employee managements page
+      {
+        path: "/admin/emp_managements",
+        name: "admin.emp",
+        component: () => import("../pages/admin_page/emp_management/index.vue"),
+        meta: {
+          title: "Shineonyou - Quản lí nhân viên",
+        },
+      },
+      {
+        path: "/emp_details/:username",
+        name: "admin.emp_details",
+        component: () =>
+          import("../pages/admin_page/emp_management/emp_detail_info.vue"),
+        meta: {
+          title: "Shineonyou - Chi tiết nhân viên",
+        },
+      },
+      // Router for admin patients managements page
+      {
+        path: "/admin/patients_managements",
+        name: "admin.patients",
+        component: () => import("../pages/admin_page/patients_mga.vue"),
+        meta: {
+          title: "Shineonyou - Quản lí bệnh nhân",
+        },
+      },
+      // Router for admin products managements page
+      {
+        path: "/admin/products_managements",
+        name: "admin.products",
+        component: () => import("../pages/admin_page/products_mga.vue"),
+        meta: {
+          title: "Shineonyou - Quản lí sản phẩm",
+        },
+      },
+      // Router for admin services managements page
+      {
+        path: "/admin/services_managements",
+        name: "admin.services",
+        component: () => import("../pages/admin_page/services_mga.vue"),
+        meta: {
+          title: "Shineonyou - Quản lí dịch vụ",
+        },
+      },
+      // Router for admin booking managements page
+      {
+        path: "/admin/booking_managements",
+        name: "admin.booking",
+        component: () => import("../pages/admin_page/booking_mga.vue"),
+        meta: {
+          title: "Shineonyou - Quản lí lịch hẹn",
+        },
+      },
+      // Router for admin category product managements page
+      {
+        path: "/admin/category_products_managements",
+        name: "admin.category_products",
+        component: () => import("../pages/admin_page/category_product_mga.vue"),
+        meta: {
+          title: "Shineonyou - Quản lí danh mục sản phẩm",
+        },
+      },
+      // Router for admin setting page
+      {
+        path: "/admin/settings",
+        name: "admin.settings",
+        component: () => import("../pages/admin_page/setting_page.vue"),
+        meta: {
+          title: "Shineonyou - Cài đặt hệ thống",
+        },
+      },
     ],
   },
 ];
