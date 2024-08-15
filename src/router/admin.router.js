@@ -10,7 +10,7 @@ const admin = [
     children: [
       // Router for admin dashboard page
       {
-        path: "/admin/dashboard",
+        path: "admin/dashboard",
         name: "admin.dashboard",
         component: () => import("../pages/admin_page/dash_broad.vue"),
         meta: {
@@ -19,15 +19,16 @@ const admin = [
       },
       // Router for admin employee managements page
       {
-        path: "/admin/emp_managements",
+        path: "admin/emp_managements",
         name: "admin.emp",
         component: () => import("../pages/admin_page/emp_management/index.vue"),
         meta: {
           title: "Shineonyou - Quản lí nhân viên",
         },
       },
+      // Show
       {
-        path: "/emp_details/:username",
+        path: "emp_details/:username",
         name: "admin.emp_details",
         component: () =>
           import("../pages/admin_page/emp_management/emp_detail_info.vue"),
@@ -35,13 +36,39 @@ const admin = [
           title: "Shineonyou - Chi tiết nhân viên",
         },
       },
+
       // Router for admin patients managements page
       {
-        path: "/admin/patients_managements",
+        path: "patients_managements",
         name: "admin.patients",
-        component: () => import("../pages/admin_page/patients_mga.vue"),
+        component: () =>
+          import("../pages/admin_page/patient_managements/index.vue"),
         meta: {
           title: "Shineonyou - Quản lí bệnh nhân",
+        },
+      },
+      // Show
+      {
+        path: "patient_details/:username",
+        name: "admin.patient_details",
+        component: () =>
+          import(
+            "../pages/admin_page/patient_managements/patient_detail_info.vue"
+          ),
+        meta: {
+          title: "Shineonyou - Chi tiết bệnh nhân",
+        },
+      },
+      // add
+      {
+        path: "add_a_newpatient",
+        name: "admin.add.patient",
+        component: () =>
+          import(
+            "../pages/admin_page/patient_managements/add_patient_detail_info.vue"
+          ),
+        meta: {
+          title: "Shineonyou - Chi tiết nhân viên",
         },
       },
       // Router for admin products managements page

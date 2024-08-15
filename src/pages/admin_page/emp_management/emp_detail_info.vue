@@ -19,6 +19,7 @@
               <p style="font-weight: bold">Điện thoại:</p>
               <p style="font-weight: bold">Email:</p>
               <p style="font-weight: bold">Chuyên khoa:</p>
+              <p style="font-weight: bold">Quyền truy cập:</p>
             </div>
           </div>
           <div class="flex-1">

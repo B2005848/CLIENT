@@ -1,6 +1,6 @@
 <template>
   <!-- Quản lí nhân viên -->
-  <div class="container-fluid">
+  <div class="container-fluid mt-3">
     <div class="card p-2">
       <div class="d-flex">
         <div class="flex-1">
@@ -30,7 +30,7 @@
       <div class="table-responsive mt-2">
         <table class="table table-bordered table-hover table-striped table-sm">
           <thead class="thead-dark">
-            <tr>
+            <tr class="text-center">
               <th scope="col">STT</th>
               <th scope="col">Mã nhân viên</th>
               <th scope="col">Họ và tên</th>
@@ -42,7 +42,11 @@
             </tr>
           </thead>
           <tbody>
-            <tr v-for="(emp, index) in list_doctors" :key="index">
+            <tr
+              class="text-center"
+              v-for="(emp, index) in list_doctors"
+              :key="index"
+            >
               <th scope="row">{{ index + 1 }}</th>
               <td>{{ emp.username }}</td>
               <td>{{ emp.name }}</td>
@@ -57,7 +61,7 @@
                     params: { username: emp.username },
                   }"
                 >
-                  Xem thêm
+                  Chi tiết
                 </router-link>
               </td>
             </tr>
