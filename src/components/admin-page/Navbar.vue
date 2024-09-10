@@ -4,8 +4,9 @@
 }
 
 .d-flex {
-  background-color: #5198fa;
-  padding: 10px;
+  background-color: #e9e7ec;
+
+  padding: 30px 25px 30px 25px;
   height: 30px;
   margin: 0;
 }
@@ -25,7 +26,8 @@ p {
 <template>
   <div class="d-flex justify-content-between">
     <div>
-      <p>ShineOnYou - Administrators</p>
+      <img src="/LogoNoText.svg" width="50" alt="" />
+      <img src="/TitleLogo.svg" width="200" alt="" />
     </div>
     <div>
       <font-awesome-icon
@@ -35,3 +37,4 @@ p {
     </div>
   </div>
 </template>
+<script setup></script>
