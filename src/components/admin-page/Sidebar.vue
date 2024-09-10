@@ -1,3 +1,36 @@
+<!-- ------------------------------------------CSS----------------------------------->
+<style scoped>
+* {
+  margin: 0;
+  padding: 0;
+}
+.main {
+  width: 100%;
+}
+
+ul {
+  margin-left: 10px;
+  list-style: none;
+  line-height: 1.5cm;
+  padding-top: 20px;
+  height: 100vh;
+}
+
+a {
+  color: #094067;
+  text-decoration: none;
+  font-weight: bold;
+}
+
+a:hover {
+  color: #fa8181;
+}
+
+a:focus {
+  color: #fa8181;
+}
+</style>
+<!-- -----------------------------------TEMPLATE------------------------------ -->
 <template>
   <div class="main">
     <ul>
@@ -47,35 +80,3 @@
     </ul>
   </div>
 </template>
-
-<style scoped>
-* {
-  margin: 0;
-  padding: 0;
-}
-.main {
-  width: 100%;
-}
-
-ul {
-  margin-left: 10px;
-  list-style: none;
-  line-height: 1.5cm;
-  padding-top: 20px;
-  height: 100vh;
-}
-
-a {
-  color: #094067;
-  text-decoration: none;
-  font-weight: bold;
-}
-
-a:hover {
-  color: #fa8181;
-}
-
-a:focus {
-  color: #fa8181;
-}
-</style>

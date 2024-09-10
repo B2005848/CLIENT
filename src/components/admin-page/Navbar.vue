@@ -4,8 +4,10 @@
 }
 
 .d-flex {
-  background-color: #e9e7ec;
-
+  background-color: #f0f0f1;
+  border: #212f3c 1px solid;
+  border-right: none;
+  border-left: none;
   padding: 30px 25px 30px 25px;
   height: 30px;
   margin: 0;
@@ -31,7 +33,7 @@ p {
     </div>
     <div>
       <font-awesome-icon
-        style="color: aliceblue; font-size: 20px"
+        style="color: #34495e; font-size: 20px"
         icon="fa-bars-staggered"
       />
     </div>

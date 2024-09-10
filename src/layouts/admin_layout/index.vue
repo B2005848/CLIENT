@@ -22,7 +22,7 @@
 }
 
 .col-md-2 {
-  background-color: #d8eefe;
+  background-color: #f0f0f1;
 }
 </style>
 
