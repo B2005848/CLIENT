@@ -4,7 +4,7 @@
 }
 
 .d-flex {
-  background-color: #f0f0f1;
+  background-color: #ffffff;
   border: #212f3c 1px solid;
   border-right: none;
   border-left: none;

@@ -2,6 +2,7 @@
 * {
   margin: 0;
 }
+@import "@/assets/css/animation__page.css";
 </style>
 <template>
   <navigation></navigation>
@@ -18,7 +19,3 @@ import navigation from "@/components/The_navigation.vue";
 // import Input_search from "@/components/Input_search.vue";
 import TheFooter from "@/components/The_footer.vue";
 </script>
-
-<style scoped>
-@import "@/assets/css/animation__page.css";
-</style>

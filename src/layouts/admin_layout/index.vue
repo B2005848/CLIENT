@@ -1,14 +1,14 @@
 <template>
-  <div class="h-100">
+  <div class="layout-container">
     <div>
       <Navbar></Navbar>
     </div>
-    <div class="row">
-      <div class="col-md-2">
+    <div class="d-flex content-wrapper">
+      <div class="sidebar">
         <Sidebar></Sidebar>
       </div>
 
-      <div class="col-md-10">
+      <div class="main-content">
         <router-view class="fade-in"></router-view>
       </div>
     </div>
@@ -19,10 +19,41 @@
 @import "@/assets/css/animation__page.css";
 * {
   margin: 0;
+  padding: 0;
+  box-sizing: border-box;
 }
 
-.col-md-2 {
+.layout-container {
+  display: flex;
+  flex-direction: column;
+  height: 100vh;
+}
+
+.d-flex {
+  display: flex;
+  flex-direction: row;
+}
+
+.content-wrapper {
+  flex-grow: 1;
+  height: 100%;
+}
+
+.sidebar {
   background-color: #f0f0f1;
+  width: 300px;
+  height: 100%;
+  overflow-y: auto;
+}
+
+.main-content {
+  flex-grow: 1;
+  padding: 20px;
+  overflow-y: auto;
+}
+
+.fade-in {
+  animation: fadeIn 0.5s ease-in-out;
 }
 </style>
 
