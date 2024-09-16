@@ -57,6 +57,9 @@
           />
         </div>
 
+        <div v-if="errorMessage" class="alert alert-danger">
+          {{ errorMessage }}
+        </div>
         <div class="form-group">
           <p>
             Bạn chưa có tài khoản?
@@ -78,12 +81,11 @@
 
 <script setup>
 import { ref } from "vue";
-import { useRouter } from "vue-router";
-import { useAuthStore } from "@/stores/authenticate-login";
-const router = useRouter();
-const authStore = useAuthStore();
+import { useLoginPatient } from "@/services/useLoginPatient";
+
+const { loginData, handleLogin, errorMessage } = useLoginPatient();
 const passwordFieldType = ref("password");
-const iconPasswd = ref(["fa", "fa-eye"]);
+const iconPasswd = ref("fa-eye");
 
 const showPass = () => {
   if (passwordFieldType.value === "password") {
@@ -92,27 +94,6 @@ const showPass = () => {
   } else {
     passwordFieldType.value = "password";
     iconPasswd.value = ["fa", "fa-eye"];
-  }
-};
-
-const loginData = ref({
-  username: "",
-  password: "",
-});
-
-const handleLogin = async () => {
-  try {
-    const response = await window.axios.post(
-      "http://localhost:3000/api/patient/account/login",
-      loginData.value
-    );
-    if (response.status === 200) {
-      authStore.login(loginData.value.username);
-      router.push({ name: "home.page.product" });
-      console.log("Login success", loginData.value.username);
-    }
-  } catch (error) {
-    console.log(error.response.data.message);
   }
 };
 </script>

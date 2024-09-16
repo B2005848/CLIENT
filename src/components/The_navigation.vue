@@ -142,16 +142,18 @@ li {
 
     <!-- LOGIN BUTTON -->
     <div class="item-3 col-3 mt-3">
-      <div v-if="username && name" class="text-center">
+      <div v-show="authStore.isLogged" class="text-center">
         <font-awesome-icon
           icon="fa-regular fa-user"
           bounce
           style="color: #74c0fc"
         />
-        <span class="ms-2"> Xin chào, ! {{ username }}_{{ name }}</span>
+        <span class="ms-2">
+          Xin chào, ! {{ username }}_{{ first_name }}_{{ last_name }}</span
+        >
         <button @click="logout" class="btn__logout">Đăng xuất</button>
       </div>
-      <div v-if="!username && !name" class="text-center">
+      <div v-show="!authStore.isLogged" class="text-center">
         <router-link :to="{ name: 'login.page' }">ĐĂNG NHẬP</router-link> /
         <router-link :to="{ name: 'sign_up.page' }"
           >ĐĂNG KÍ TÀI KHOẢN</router-link
@@ -173,31 +175,16 @@ li {
 
 <script setup>
 import { useAuthStore } from "@/stores/authenticate-login";
-import { onMounted, ref } from "vue";
+import { onMounted } from "vue";
+import { getInformationPatient } from "@/services/getInfo.Patient";
 const authStore = useAuthStore();
-const usernametest = authStore.username;
-console.log(usernametest);
-const username = ref("");
-const name = ref("");
-const getInformationPatient = async () => {
-  try {
-    const response = await window.axios.get(
-      `http://localhost:3000/api/handle/patient/getinfo/${usernametest}`
-    );
-    console.log(response.data);
-    if (response.status === 200) {
-      username.value = response.data.dataInfo.username;
-      name.value = response.data.dataInfo.name;
-    }
-  } catch (error) {
-    console.error(
-      "An error occurred while get data information patient:",
-      error
-    );
-  }
-};
-onMounted(() => {
+const patient_id = authStore.patientId;
+
+const { handleGetInformationPatient, first_name, last_name, username } =
   getInformationPatient();
+
+onMounted(() => {
+  handleGetInformationPatient(patient_id);
 });
 const logout = () => {
   authStore.logout();
