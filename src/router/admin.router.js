@@ -1,3 +1,5 @@
+import loginPage from "@/layouts/admin_layout/account.login.vue";
+
 const admin = [
   // Router for admin page
   {

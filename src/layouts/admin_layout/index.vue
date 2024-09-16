@@ -15,6 +15,8 @@
   </div>
 </template>
 
+<script setup></script>
+
 <style scoped>
 @import "@/assets/css/animation__page.css";
 * {
