@@ -1,7 +1,16 @@
 import loginPage from "@/layouts/admin_layout/account.login.vue";
 
 const admin = [
-  // Router for admin page
+  // Router for admin login page (separated from admin routes)
+  {
+    path: "/login",
+    name: "admin.login",
+    component: loginPage,
+    meta: {
+      title: "Shineonyou - Login",
+    },
+  },
+  // Router for admin pages
   {
     path: "/admin",
     name: "admin.page",
@@ -12,7 +21,7 @@ const admin = [
     children: [
       // Router for admin dashboard page
       {
-        path: "admin/dashboard",
+        path: "dashboard",
         name: "admin.dashboard",
         component: () => import("../pages/admin_page/dash_broad.vue"),
         meta: {
@@ -21,14 +30,14 @@ const admin = [
       },
       // Router for admin employee managements page
       {
-        path: "admin/emp_managements",
+        path: "emp_managements",
         name: "admin.emp",
         component: () => import("../pages/admin_page/emp_management/index.vue"),
         meta: {
           title: "Shineonyou - Quản lí nhân viên",
         },
       },
-      // Show
+      // Show employee details
       {
         path: "emp_details/:username",
         name: "admin.emp_details",
@@ -38,7 +47,6 @@ const admin = [
           title: "Shineonyou - Chi tiết nhân viên",
         },
       },
-
       // Router for admin patients managements page
       {
         path: "patients_managements",
@@ -49,7 +57,7 @@ const admin = [
           title: "Shineonyou - Quản lí bệnh nhân",
         },
       },
-      // Show
+      // Show patient details
       {
         path: "patient_details/:username",
         name: "admin.patient_details",
@@ -61,7 +69,7 @@ const admin = [
           title: "Shineonyou - Chi tiết bệnh nhân",
         },
       },
-      // add
+      // Add a new patient
       {
         path: "add_a_newpatient",
         name: "admin.add.patient",
@@ -70,12 +78,12 @@ const admin = [
             "../pages/admin_page/patient_managements/add_patient_detail_info.vue"
           ),
         meta: {
-          title: "Shineonyou - Chi tiết nhân viên",
+          title: "Shineonyou - Thêm bệnh nhân mới",
         },
       },
       // Router for admin products managements page
       {
-        path: "/admin/products_managements",
+        path: "products_managements",
         name: "admin.products",
         component: () => import("../pages/admin_page/products_mga.vue"),
         meta: {
@@ -84,7 +92,7 @@ const admin = [
       },
       // Router for admin services managements page
       {
-        path: "/admin/services_managements",
+        path: "services_managements",
         name: "admin.services",
         component: () => import("../pages/admin_page/services_mga.vue"),
         meta: {
@@ -93,7 +101,7 @@ const admin = [
       },
       // Router for admin booking managements page
       {
-        path: "/admin/booking_managements",
+        path: "booking_managements",
         name: "admin.booking",
         component: () => import("../pages/admin_page/booking_mga.vue"),
         meta: {
@@ -102,7 +110,7 @@ const admin = [
       },
       // Router for admin category product managements page
       {
-        path: "/admin/category_products_managements",
+        path: "category_products_managements",
         name: "admin.category_products",
         component: () => import("../pages/admin_page/category_product_mga.vue"),
         meta: {
@@ -111,7 +119,7 @@ const admin = [
       },
       // Router for admin setting page
       {
-        path: "/admin/settings",
+        path: "settings",
         name: "admin.settings",
         component: () => import("../pages/admin_page/setting_page.vue"),
         meta: {
