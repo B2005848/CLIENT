@@ -176,7 +176,7 @@ li {
 <script setup>
 import { useAuthStore } from "@/stores/authenticate-login";
 import { onMounted } from "vue";
-import { getInformationPatient } from "@/services/getInfo.Patient";
+import { getInformationPatient } from "@/services/apiForPatient/getInfoPatient";
 const authStore = useAuthStore();
 const patient_id = authStore.patientId;
 
