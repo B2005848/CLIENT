@@ -3,7 +3,7 @@ const homepage = [
   {
     path: "/homepage",
     name: "home.page",
-    component: () => import("../layouts/customer_layout/index.vue"),
+    component: () => import("../layouts/index.vue"),
     meta: {
       title: "Shineonyou - Đặt lịch khám, sản phẩm sức khỏe, dịch vụ ",
     },
@@ -11,8 +11,7 @@ const homepage = [
       {
         path: "product",
         name: "home.page.product",
-        component: () =>
-          import("../pages/customer_page/list_products_page.vue"),
+        component: () => import("../pages/list_products_page.vue"),
         meta: {
           title: "Sản phẩm sức khỏe",
         },
@@ -21,7 +20,7 @@ const homepage = [
       {
         path: "service",
         name: "home.page.service",
-        component: () => import("../pages/customer_page/service_page.vue"),
+        component: () => import("../pages/service_page.vue"),
         meta: {
           title: "Dịch vụ sức khỏe",
         },
@@ -30,7 +29,7 @@ const homepage = [
       {
         path: "booking",
         name: "home.page.booking",
-        component: () => import("../pages/customer_page/booking_page.vue"),
+        component: () => import("../pages/booking_page.vue"),
         meta: {
           title: "Đặt lịch khám",
         },
@@ -39,9 +38,7 @@ const homepage = [
             path: "old",
             name: "home.page.booking.old",
             component: () =>
-              import(
-                "../pages/customer_page/children_booking_page/booking_old.vue"
-              ),
+              import("../pages/children_booking_page/booking_old.vue"),
             meta: {
               title: "Đặt lịch khám dành cho bệnh nhân cũ",
             },
@@ -50,9 +47,7 @@ const homepage = [
             path: "new",
             name: "home.page.booking.new",
             component: () =>
-              import(
-                "../pages/customer_page/children_booking_page/booking_new.vue"
-              ),
+              import("../pages/children_booking_page/booking_new.vue"),
             meta: {
               title: "Đặt lịch khám dành cho bệnh nhân mới",
             },
@@ -64,9 +59,7 @@ const homepage = [
         path: "booking/select_service_booking",
         name: "home.page.booking.select_service_booking",
         component: () =>
-          import(
-            "../pages/customer_page/children_booking_page/select_service.vue"
-          ),
+          import("../pages/children_booking_page/select_service.vue"),
         meta: {
           title: "Chọn dịch vụ khám",
         },
@@ -76,9 +69,7 @@ const homepage = [
             path: "booking/select_doctor_booking",
             name: "home.page.booking.select_doctor_booking",
             component: () =>
-              import(
-                "../pages/customer_page/children_booking_page/select_doctor.vue"
-              ),
+              import("../pages/children_booking_page/select_doctor.vue"),
             meta: {
               title: "Chọn bác sĩ khám và giờ khám",
             },
@@ -90,7 +81,7 @@ const homepage = [
       {
         path: "contact",
         name: "home.page.contact",
-        component: () => import("../pages/customer_page/contacts_page.vue"),
+        component: () => import("../pages/contacts_page.vue"),
         meta: {
           title: "Liên hệ",
         },
@@ -99,7 +90,7 @@ const homepage = [
       {
         path: "about",
         name: "home.page.about",
-        component: () => import("../pages/customer_page/introduction_page.vue"),
+        component: () => import("../pages/introduction_page.vue"),
         meta: {
           title: "Hướng dẫn khách hàng sử dụng trang web",
         },
@@ -108,7 +99,7 @@ const homepage = [
       {
         path: "list-doctor",
         name: "home.page.list-doctor",
-        component: () => import("../pages/customer_page/list_doctor_page.vue"),
+        component: () => import("../pages/list_doctor_page.vue"),
         meta: {
           title: "Danh sách bác sĩ",
         },
@@ -119,13 +110,13 @@ const homepage = [
   {
     path: "/accounts",
     name: "accounts.page",
-    component: () => import("../layouts/customer_layout/accounts_page.vue"),
+    component: () => import("../layouts/accounts_page.vue"),
 
     children: [
       {
         path: "login",
         name: "login.page",
-        component: () => import("../pages/customer_page/login_page.vue"),
+        component: () => import("../pages/login_page.vue"),
         meta: {
           title: "Đăng nhập",
         },
@@ -134,7 +125,7 @@ const homepage = [
       {
         path: "sign_up",
         name: "sign_up.page",
-        component: () => import("../pages/customer_page/signup_page.vue"),
+        component: () => import("../pages/signup_page.vue"),
         meta: {
           title: "Đăng kí tài khoản",
         },

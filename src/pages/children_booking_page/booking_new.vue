@@ -504,5 +504,5 @@ const updateValues = () => {
 };
 </script>
 <style scoped>
-@import "@/assets/css/pages/customer/booking_new.css";
+@import "@/assets/css/pages/booking_new.css";
 </style>

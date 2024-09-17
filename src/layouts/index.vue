@@ -1,8 +1,8 @@
 <style scoped>
+@import "@/assets/css/animation__page.css";
 * {
   margin: 0;
 }
-@import "@/assets/css/animation__page.css";
 </style>
 <template>
   <navigation></navigation>

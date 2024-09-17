@@ -55,9 +55,9 @@ import {
   corlorButtonCursor2,
   buttonCorsor1,
   buttonCorsor2,
-} from "../../assets/js/pages/customer/booking_page.js";
+} from "../assets/js/pages/booking_page.js";
 </script>
 <style scoped>
-@import "../../assets/css/pages/customer/booking_page.css";
+@import "../assets/css/pages/";
 @import "@/assets/css/animation__page.css";
 </style>

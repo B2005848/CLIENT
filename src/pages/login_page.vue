@@ -81,7 +81,7 @@
 
 <script setup>
 import { ref } from "vue";
-import { useLoginPatient } from "@/services/apiForPatient/useLoginPatient";
+import { useLoginPatient } from "@/services/useLoginPatient";
 
 const { loginData, handleLogin, errorMessage } = useLoginPatient();
 const passwordFieldType = ref("password");
