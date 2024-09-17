@@ -1,47 +1,50 @@
 <template>
-  <Theproccessbooking></Theproccessbooking>
-  <div class="main mt-5 fade-in">
-    <div class="title text-center">
-      <h3>ĐĂNG KÍ KHÁM BỆNH</h3>
+  <div>
+    <Theproccessbooking></Theproccessbooking>
+    <div class="main mt-5 fade-in">
+      <div class="title text-center">
+        <h3>ĐĂNG KÍ KHÁM BỆNH</h3>
 
-      <p style="color: #6b6b6b; margin-top: 15px">
-        Bạn đã từng khám tại phòng khám Shine On You chưa?
-      </p>
+        <p style="color: #6b6b6b; margin-top: 15px">
+          Bạn đã từng khám tại phòng khám Shine On You chưa?
+        </p>
 
-      <div class="option__booking row">
-        <div class="option__1 col-6">
-          <router-link :to="{ name: 'home.page.booking.old' }">
-            <button
-              :style="corlorButtonCursor1"
-              @click="buttonCorsor1"
-              type="button"
+        <div class="option__booking row">
+          <div class="option__1 col-6">
+            <router-link :to="{ name: 'home.page.booking.old' }">
+              <button
+                :style="corlorButtonCursor1"
+                @click="buttonCorsor1"
+                type="button"
+              >
+                ĐÃ TỪNG KHÁM
+              </button></router-link
             >
-              ĐÃ TỪNG KHÁM
-            </button></router-link
-          >
-          <p>(Nhập mã bệnh nhân)</p>
-        </div>
+            <p>(Nhập mã bệnh nhân)</p>
+          </div>
 
-        <div class="option__2 col-6">
-          <router-link :to="{ name: 'home.page.booking.new' }">
-            <button
-              @click="buttonCorsor2"
-              :style="corlorButtonCursor2"
-              type="button"
+          <div class="option__2 col-6">
+            <router-link :to="{ name: 'home.page.booking.new' }">
+              <button
+                @click="buttonCorsor2"
+                :style="corlorButtonCursor2"
+                type="button"
+              >
+                CHƯA TỪNG KHÁM
+              </button></router-link
             >
-              CHƯA TỪNG KHÁM
-            </button></router-link
-          >
-          <p>(Tạo hồ sơ mới)</p>
+            <p>(Tạo hồ sơ mới)</p>
+          </div>
         </div>
+        <p class="note">
+          Lưu ý thông tin phải chính xác khi điền vào, những trường bắt buộc
+          không được bỏ trống (<span style="color: red; font-size: 15px">*</span
+          >)
+        </p>
       </div>
-      <p class="note">
-        Lưu ý thông tin phải chính xác khi điền vào, những trường bắt buộc không
-        được bỏ trống (<span style="color: red; font-size: 15px">*</span>)
-      </p>
+      <hr class="mt-5" />
+      <router-view class="fade-in"></router-view>
     </div>
-    <hr class="mt-5" />
-    <router-view class="fade-in"></router-view>
   </div>
 </template>
 

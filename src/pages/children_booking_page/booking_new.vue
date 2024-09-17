@@ -198,11 +198,7 @@
                 id="district"
                 v-model="selectedDistrict"
               >
-                <option
-                  v-for="d in districts"
-                  :key="districts"
-                  :value="districts"
-                >
+                <option v-for="(d, index) in districts" :key="index" :value="d">
                   {{ d }}
                 </option>
               </select>
