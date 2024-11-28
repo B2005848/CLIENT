@@ -51,16 +51,18 @@
 <script setup>
 import Theproccessbooking from "@/components/proccess_booking.vue";
 import { useProccess } from "@/stores/proccess_booking.store";
-const useProccessStore = useProccess();
-useProccessStore.setStep(1);
 import {
   corlorButtonCursor1,
   corlorButtonCursor2,
   buttonCorsor1,
   buttonCorsor2,
-} from "../assets/js/pages/booking_page.js";
+} from "@/assets/js/pages/booking_page.js";
+const useProccessStore = useProccess();
+useProccessStore.setStep(1);
 </script>
 <style scoped>
-@import "../assets/css/pages/";
+@import "@/assets/css/pages/booking_new.css";
+@import "@/assets/css/pages/booking_page.css";
+
 @import "@/assets/css/animation__page.css";
 </style>

@@ -5,12 +5,14 @@
 }
 </style>
 <template>
-  <navigation></navigation>
-  <!-- <Input_search></Input_search> -->
-  <!-- <TheBody></TheBody> -->
-  <router-view class="fade-in"></router-view>
-  <hr class="mt-3" />
-  <TheFooter></TheFooter>
+  <div>
+    <navigation></navigation>
+    <!-- <Input_search></Input_search> -->
+    <!-- <TheBody></TheBody> -->
+    <router-view class="fade-in"></router-view>
+    <hr class="mt-3" />
+    <TheFooter></TheFooter>
+  </div>
 </template>
 
 <script setup>

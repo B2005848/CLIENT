@@ -75,52 +75,62 @@
 </style>
 
 <template>
-  <div class="list__doctor form-control">
-    <div v-for="doctor in doctors" :key="doctor.id" class="card mb-3 p-5 mt-2">
-      <div class="card-title row">
-        <div class="col-md-6 d-flex align-items-center justify-content-center">
-          <img
-            :src="doctor.image"
-            alt="Doctor Image"
-            class="img-fluid rounded-circle"
-            width="250"
-          />
-        </div>
-        <div class="col-md-6 row">
-          <h5>{{ doctor.name }}</h5>
-          <div class="col">
-            <p class="info__title">Chuyên Khoa:</p>
-            <p class="info__title">Số điện thoại:</p>
-            <p class="info__title">Email:</p>
-          </div>
-          <div class="col">
-            <p>{{ doctor.specialty }}</p>
-            <p>{{ doctor.phone }}</p>
-            <p>{{ doctor.email }}</p>
-          </div>
-        </div>
-      </div>
-      <div class="card-body">
-        <div class="row">
+  <div>
+    <div class="list__doctor form-control">
+      <div
+        v-for="doctor in doctors"
+        :key="doctor.id"
+        class="card mb-3 p-5 mt-2"
+      >
+        <div class="card-title row">
           <div
             class="col-md-6 d-flex align-items-center justify-content-center"
           >
-            <button
-              class="time me-2"
-              v-for="time in doctor.availableTimes"
-              :key="time"
+            <img
+              :src="doctor.image"
+              alt="Doctor Image"
+              class="img-fluid rounded-circle"
+              width="250"
+            />
+          </div>
+          <div class="col-md-6 row">
+            <h5>{{ doctor.name }}</h5>
+            <div class="col">
+              <p class="info__title">Chuyên Khoa:</p>
+              <p class="info__title">Số điện thoại:</p>
+              <p class="info__title">Email:</p>
+            </div>
+            <div class="col">
+              <p>{{ doctor.specialty }}</p>
+              <p>{{ doctor.phone }}</p>
+              <p>{{ doctor.email }}</p>
+            </div>
+          </div>
+        </div>
+        <div class="card-body">
+          <div class="row">
+            <div
+              class="col-md-6 d-flex align-items-center justify-content-center"
             >
-              {{ time }}
-            </button>
+              <button
+                class="time me-2"
+                v-for="time in doctor.availableTimes"
+                :key="time"
+              >
+                {{ time }}
+              </button>
+            </div>
           </div>
         </div>
       </div>
     </div>
-  </div>
-  <div class="mb-4 mt-5 text-center">
-    <router-link :to="{ name: 'home.page.booking.select_service_booking' }">
-      <button type="submit" class="btn__submit">TIẾP THEO</button></router-link
-    >
+    <div class="mb-4 mt-5 text-center">
+      <router-link :to="{ name: 'home.page.booking.select_service_booking' }">
+        <button type="submit" class="btn__submit">
+          TIẾP THEO
+        </button></router-link
+      >
+    </div>
   </div>
 </template>
 

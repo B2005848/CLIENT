@@ -62,80 +62,84 @@ a {
 </style>
 
 <template>
-  <Theproccessbooking></Theproccessbooking>
+  <div>
+    <Theproccessbooking></Theproccessbooking>
 
-  <!-------------------------------- Chọn dịch vụ khám --------------------------------->
-  <div class="container">
-    <div class="mb-5 row">
-      <div class="col">
-        <input
-          class="form-control mt-5"
-          type="text"
-          placeholder="Nhập tên dịch vụ cần tìm..."
-        />
+    <!-------------------------------- Chọn dịch vụ khám --------------------------------->
+    <div class="container">
+      <div class="mb-5 row">
+        <div class="col">
+          <input
+            class="form-control mt-5"
+            type="text"
+            placeholder="Nhập tên dịch vụ cần tìm..."
+          />
+        </div>
+
+        <div class="col">
+          <button class="btn btn-primary mt-5">Tìm kiếm</button>
+        </div>
       </div>
 
-      <div class="col">
-        <button class="btn btn-primary mt-5">Tìm kiếm</button>
+      <!-- ------------------DATE__BOOKING---------------- -->
+      <div class="select__date__booking">
+        <h4 class="mb-2">
+          <span
+            style="border-left: solid royalblue 5px; margin-right: 3px"
+          ></span
+          >CHỌN NGÀY KHÁM
+        </h4>
+        <div class="mb-5">
+          <input type="date" class="form-control" />
+        </div>
       </div>
-    </div>
 
-    <!-- ------------------DATE__BOOKING---------------- -->
-    <div class="select__date__booking">
+      <!-- --------------SERVICE__BOOKING---------------------- -->
       <h4 class="mb-2">
         <span style="border-left: solid royalblue 5px; margin-right: 3px"></span
-        >CHỌN NGÀY KHÁM
+        >CHỌN DỊCH VỤ KHÁM
       </h4>
-      <div class="mb-5">
-        <input type="date" class="form-control" />
+
+      <div class="thead text-center row mb-2 form-control">
+        <div><b>STT</b></div>
+        <div><b>Tên dịch vụ</b></div>
+        <div><b>Giá</b></div>
+        <div><b>Chọn</b></div>
       </div>
-    </div>
-
-    <!-- --------------SERVICE__BOOKING---------------------- -->
-    <h4 class="mb-2">
-      <span style="border-left: solid royalblue 5px; margin-right: 3px"></span
-      >CHỌN DỊCH VỤ KHÁM
-    </h4>
-
-    <div class="thead text-center row mb-2 form-control">
-      <div><b>STT</b></div>
-      <div><b>Tên dịch vụ</b></div>
-      <div><b>Giá</b></div>
-      <div><b>Chọn</b></div>
-    </div>
-    <div class="list__service text-center form-control">
-      <div
-        class="service-row"
-        v-for="(service, index) in services"
-        :key="index"
-      >
-        <div>
-          {{ index + 1 }}
-        </div>
-        <div>{{ service.name }}</div>
-        <div>
-          {{ useCurrency.formatCurrency(service.price) }}
-        </div>
-        <div>
-          <router-link
-            :to="{ name: 'home.page.booking.select_doctor_booking' }"
-          >
-            <button
-              @click="selectService(index)"
-              type="button"
-              class="btn__select"
+      <div class="list__service text-center form-control">
+        <div
+          class="service-row"
+          v-for="(service, index) in services"
+          :key="index"
+        >
+          <div>
+            {{ index + 1 }}
+          </div>
+          <div>{{ service.name }}</div>
+          <div>
+            {{ useCurrency.formatCurrency(service.price) }}
+          </div>
+          <div>
+            <router-link
+              :to="{ name: 'home.page.booking.select_doctor_booking' }"
             >
-              {{ service.selected ? "ĐÃ CHỌN" : "CHỌN" }}
-            </button>
-          </router-link>
+              <button
+                @click="selectService(index)"
+                type="button"
+                class="btn__select"
+              >
+                {{ service.selected ? "ĐÃ CHỌN" : "CHỌN" }}
+              </button>
+            </router-link>
+          </div>
         </div>
       </div>
+      <h4 class="mb-2 mt-5">
+        <span style="border-left: solid royalblue 5px; margin-right: 3px"></span
+        >VUI LÒNG CHỌN BÁC SĨ VÀ GIỜ KHÁM
+      </h4>
+      <router-view></router-view>
     </div>
-    <h4 class="mb-2 mt-5">
-      <span style="border-left: solid royalblue 5px; margin-right: 3px"></span
-      >VUI LÒNG CHỌN BÁC SĨ VÀ GIỜ KHÁM
-    </h4>
-    <router-view></router-view>
   </div>
 </template>
 
